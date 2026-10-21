@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbfbfb">
+  <meta name="description" content="VETRAX: RPG de minería, exploración y fundición.">
+  <title>VETRAX · RPG de minería</title>
+  <style>
+    :root {font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:#171619;background:#eeeeed;font-synthesis:none;}
+    *{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;padding:22px}
+    .app{width:min(100%,410px);min-height:min(844px,calc(100dvh - 44px));background:#fff;border-radius:37px;box-shadow:0 15px 55px #1b1b1b1a;overflow:hidden;display:flex;flex-direction:column}
+    .screen{display:flex;flex-direction:column;flex:1;min-height:0;animation:rise .36s ease both}
+    [hidden]{display:none!important}
+    .art{height:clamp(300px,53dvh,502px);width:100%;overflow:hidden;flex-shrink:0;background:#ddd;border-radius:32px 32px 0 0;padding:8px 8px 0}
+    .art svg{display:block;width:100%;height:100%;border-radius:26px 26px 0 0;overflow:hidden}
+    .intro{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:21px 29px 30px;gap:0}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.28em;color:#939095;margin:0 0 9px}
+    h1{font-size:clamp(33px,8vw,41px);font-weight:780;line-height:1.08;letter-spacing:-1.7px;margin:0}
+    .tagline{font-size:13px;color:#969398;max-width:266px;line-height:1.6;margin:14px auto 30px}
+    button{font:inherit;cursor:pointer}
+    .primary{width:100%;height:51px;background:#252326;color:white;border:0;border-radius:50px;font-size:13px;font-weight:650;box-shadow:0 7px 16px #14121523;transition:transform .15s,background .15s}
+    .primary:hover{background:#111}.primary:active{transform:scale(.98)}
+    .secondary{height:50px;border-radius:50px;border:1px solid #e7e6e7;background:white;font-weight:650;font-size:13px;color:#262426;width:100%}
+    .bottom-note{font-size:10px;color:#b6b3b5;text-align:center;padding:13px 10px 0;margin:0}
+    .auth{padding:29px 29px 31px;justify-content:space-between}
+    .back{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:3px 0;color:#767276;font-size:13px;align-self:flex-start}
+    .brand{margin:38px 0 12px;width:62px;height:62px;border-radius:19px;background:#272529;display:grid;place-items:center;color:#fff;box-shadow:0 13px 22px #1112}
+    .auth h2{font-size:32px;letter-spacing:-1.2px;margin:0 0 9px;line-height:1.12}
+    .subtitle{font-size:13px;color:#99959a;line-height:1.7;margin:0 0 26px}
+    .auth-actions{display:grid;gap:12px;margin-top:20px}
+    label{display:block;font-size:12px;font-weight:650;color:#55515a;margin:18px 0 8px}
+    input{display:block;width:100%;height:50px;border:1px solid #e5e3e5;border-radius:13px;padding:0 15px;font:inherit;font-size:14px;outline:none;background:#fdfdfd;color:#262326}
+    input:focus{border-color:#76717a;box-shadow:0 0 0 3px #8882a41b}
+    .auth form .primary{margin-top:26px}
+    .notice{font-size:12px;line-height:1.6;color:#656168;background:#f7f6f7;border-radius:13px;padding:14px;margin-top:18px}
+    .auth-footer{margin-top:30px;text-align:center;color:#a49fa4;font-size:11px}
+    @keyframes rise{from{opacity:.6;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:480px){body{display:block;padding:0;background:#fff}.app{width:100%;min-height:100dvh;min-height:100svh;border-radius:0;box-shadow:none}.art{height:clamp(320px,58dvh,650px);border-radius:0;padding:0}.art svg{border-radius:0}.intro{padding:20px 28px max(25px,env(safe-area-inset-bottom))}.tagline{margin-bottom:25px}.auth{min-height:100dvh;padding:30px 28px 35px}}
+    @media(max-height:690px){.art{height:49dvh}.intro{padding-top:13px;padding-bottom:18px}.tagline{margin-top:9px;margin-bottom:16px}.eyebrow{margin-bottom:6px}}
+    @media(prefers-reduced-motion:reduce){.screen{animation:none}.primary{transition:none}}
+  </style>
+</head>
+<body>
+  <main class="app" aria-label="VETRAX">
+    <section class="screen" id="welcome">
+      <div class="art" role="img" aria-label="Collage de una mina subterránea, excavadoras, cristales minerales y metal fundido">
+        <svg viewBox="0 0 360 476" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="p1"><path d="M-2 -2H259L169 116Q145 146 117 121L-2 25Z"/></clipPath>
+            <clipPath id="p2"><path d="M273 -2H362V220L302 266Q284 281 266 263L189 184Q166 163 188 140Z"/></clipPath>
+            <clipPath id="p3"><path d="M-2 43L108 141Q134 163 109 188L-2 316Z"/></clipPath>
+            <clipPath id="p4"><path d="M119 202Q147 171 171 195L269 291Q281 303 269 318L145 478H-2V331Z"/></clipPath>
+            <clipPath id="p5"><path d="M307 279Q326 263 343 280L362 300V478H159L284 311Z"/></clipPath>
+          </defs>
+          <rect width="360" height="476" fill="#fff"/>
+          <g clip-path="url(#p1)"><rect width="360" height="476" fill="#343b3d"/><image href="https://images.pexels.com/photos/14747539/pexels-photo-14747539.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" width="360" height="260" y="-25" preserveAspectRatio="xMidYMid slice"/></g>
+          <g clip-path="url(#p2)"><rect width="360" height="476" fill="#a8a49b"/><image href="https://images.pexels.com/photos/15138925/pexels-photo-15138925.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" x="140" y="-15" width="310" height="340" preserveAspectRatio="xMidYMid slice"/></g>
+          <g clip-path="url(#p3)"><rect width="180" height="340" fill="#605e54"/><image href="https://images.pexels.com/photos/17842717/pexels-photo-17842717.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600" x="-28" y="58" width="215" height="270" preserveAspectRatio="xMidYMid slice"/></g>
+          <g clip-path="url(#p4)"><rect width="360" height="476" fill="#67544d"/><image href="https://images.pexels.com/photos/6804265/pexels-photo-6804265.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" x="-12" y="172" width="330" height="342" preserveAspectRatio="xMidYMid slice"/></g>
+          <g clip-path="url(#p5)"><rect x="158" y="250" width="205" height="226" fill="#acacb6"/><image href="https://images.pexels.com/photos/12901545/pexels-photo-12901545.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=650" x="145" y="251" width="262" height="232" preserveAspectRatio="xMidYMid slice"/></g>
+          <path d="M-2 31L114 132Q146 156 177 126L268 -3M-2 330L112 196Q146 157 178 191L283 291M150 478L278 315Q300 289 321 269M187 183L271 268" fill="none" stroke="white" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="intro">
+        <p class="eyebrow">EXPLORE · EXTRACT · FORGE</p>
+        <h1>Bienvenido a<br>VETRAX</h1>
+        <p class="tagline">Un mundo bajo la superficie. Explorar, extraer y forjar su propio destino.</p>
+        <button class="primary" type="button" onclick="show('choice')">Continuar &nbsp; →</button>
+        <p class="bottom-note">RPG DE MINERÍA</p>
+      </div>
+    </section>
+    <section class="screen auth" id="choice" hidden>
+      <div>
+        <button type="button" class="back" onclick="show('welcome')">← Volver</button>
+        <div class="brand" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="m20 4 15 12-6 19H11L5 16 20 4Z" stroke="white" stroke-width="1.6"/><path d="m5 16 15 7 15-7M20 23v12M20 4v19" stroke="white" stroke-width="1.6"/></svg></div>
+        <h2>La aventura<br>comienza aquí.</h2>
+        <p class="subtitle">Acceder a VETRAX para explorar sus profundidades y construir su historia.</p>
+      </div>
+      <div><div class="auth-actions"><button class="primary" onclick="show('login')">Iniciar sesión</button><button class="secondary" onclick="show('register')">Crear una cuenta</button></div><p class="bottom-note">VETRAX · RPG DE MINERÍA</p></div>
+    </section>
+    <section class="screen auth" id="login" hidden>
+      <div><button type="button" class="back" onclick="show('choice')">← Volver</button><div class="brand" aria-hidden="true">◆</div><h2>Iniciar sesión</h2><p class="subtitle">Acceder al universo de VETRAX.</p>
+        <form id="loginForm"><label for="login-email">Correo electrónico</label><input id="login-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required><label for="login-password">Contraseña</label><input id="login-password" type="password" autocomplete="current-password" placeholder="Contraseña" required><button type="submit" class="primary">Entrar a VETRAX</button></form>
+        <p class="notice" id="loginMessage">Vista de demostración. La autenticación real se configurará en una próxima etapa.</p></div>
+      <p class="auth-footer">VETRAX · RPG DE MINERÍA</p>
+    </section>
+    <section class="screen auth" id="register" hidden>
+      <div><button type="button" class="back" onclick="show('choice')">← Volver</button><div class="brand" aria-hidden="true">◆</div><h2>Crear una cuenta</h2><p class="subtitle">Preparar la identidad de un nuevo minero.</p>
+        <form id="registerForm"><label for="register-name">Nombre de usuario</label><input id="register-name" type="text" autocomplete="username" maxlength="24" placeholder="Nombre del minero" required><label for="register-email">Correo electrónico</label><input id="register-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required><label for="register-password">Contraseña</label><input id="register-password" type="password" autocomplete="new-password" minlength="12" placeholder="Al menos 12 caracteres" required><button type="submit" class="primary">Crear cuenta</button></form>
+        <p class="notice" id="registerMessage">Vista de demostración. Este formulario todavía no crea cuentas ni almacena contraseñas.</p></div>
+      <p class="auth-footer">VETRAX · RPG DE MINERÍA</p>
+    </section>
+  </main>
+  <script>
+    function show(id){document.querySelectorAll('.screen').forEach(s=>{s.hidden=s.id!==id});window.scrollTo({top:0,behavior:'instant'});}
+    document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('loginMessage').textContent='La pantalla está lista. El inicio de sesión se habilitará al conectar un sistema de autenticación seguro.';});
+    document.getElementById('registerForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('registerMessage').textContent='La pantalla está lista. Todavía no se ha creado ninguna cuenta ni se han almacenado datos.';});
+  </script>
+</body>
+</html>
